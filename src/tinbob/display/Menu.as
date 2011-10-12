@@ -194,6 +194,11 @@ package tinbob.display
 					_buttons.push(button);
 				}
 			}
+			
+			var linkButton:LinkButton = new LinkButton("http://testarea.tibob.com", "Test Area");
+			linkButton.y = buttonVOffset + buttonVSpace * nPosts + 20;
+			linkButton.enable(true);
+			_buttonsContainer.addChild(linkButton);
 		}
 		/////////////////////////////////////////////////////////////////////////////////////
 		// onPagesLoaded --------------------------------------------------------------------

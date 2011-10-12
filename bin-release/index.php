@@ -3,23 +3,14 @@
 <html>
   <head>
     <title>TinBob</title>
+    <link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory');?>/img/favicon.png">
     <style type="text/css">
-      html, body {
-        height: 100%;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-      }
-
-      #full-screen-background-image {
-        z-index: -999;
-        min-height: 100%;
-        min-width: 900px;
-        width: 100%;
-        height: auto;
-        position: fixed;
-        top: 0;
-        left: 0;
+      html {
+        background: url(<?php bloginfo('template_url');?>/temp/bg.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
       }
 
       #info {
@@ -34,7 +25,6 @@
   </head>
 
   <body>
-    <img src="<?php bloginfo('template_url');?>/temp/bg.jpg" id="full-screen-background-image">
     <img src="<?php bloginfo('template_url');?>/temp/info.png"  id="info">
     <?php wp_footer(); ?>
   </body>

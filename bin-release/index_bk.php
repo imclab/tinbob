@@ -11,7 +11,7 @@
 	<?php } ?>
 	
 	<title><?php wp_title('-', true, 'right'); ?><?php bloginfo('name'); ?></title>
-	
+	<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory');?>/img/favicon.png">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory');?>/js/swfaddress.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory');?>/js/swffit.js"></script>
