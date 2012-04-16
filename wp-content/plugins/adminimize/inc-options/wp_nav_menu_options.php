@@ -1,5 +1,13 @@
 <?php
-// options for WP nav menu
+/**
+ * @package Adminimize
+ * @subpackage Nav Menu Options
+ * @author Frank Bültge
+ */
+if ( ! function_exists( 'add_action' ) ) {
+	echo "Hi there!  I'm just a part of plugin, not much I can do when called directly.";
+	exit;
+}
 ?>
 		<div id="poststuff" class="ui-sortable meta-box-sortables">
 			<div class="postbox">
@@ -22,7 +30,7 @@
 						<tbody>
 						<?php
 							foreach ($user_roles as $role) {
-								$disabled_nav_menu_option_[$role] = _mw_adminimize_getOptionValue('mw_adminimize_disabled_nav_menu_option_'. $role .'_items');
+								$disabled_nav_menu_option_[$role] = _mw_adminimize_get_option_value('mw_adminimize_disabled_nav_menu_option_'. $role .'_items');
 							}
 							
 							$nav_menu_options = array(
@@ -37,11 +45,11 @@
 								array( $nav_menu_options, '#nav-menu-theme-locations' );
 								
 							$nav_menu_options_names = array(
-								__('Help'),
+								__('Help', FB_ADMINIMIZE_TEXTDOMAIN),
 								__('Screen Options'),
-								__('Theme Locations'),
-								__('Custom Links'),
-								__('#') . '(' . __('Add menu') . ')'
+								__('Theme Locations', FB_ADMINIMIZE_TEXTDOMAIN),
+								__('Custom Links', FB_ADMINIMIZE_TEXTDOMAIN),
+								'#(' . __('Add menu', FB_ADMINIMIZE_TEXTDOMAIN) . ')'
 							);
 							
 							if ( wp_get_nav_menus() )
@@ -69,14 +77,14 @@
 								}
 							}
 							
-							$_mw_adminimize_own_nav_menu_values  = _mw_adminimize_getOptionValue('_mw_adminimize_own_nav_menu_values');
+							$_mw_adminimize_own_nav_menu_values  = _mw_adminimize_get_option_value('_mw_adminimize_own_nav_menu_values');
 							$_mw_adminimize_own_nav_menu_values = preg_split( "/\r\n/", $_mw_adminimize_own_nav_menu_values );
 							foreach ( (array) $_mw_adminimize_own_nav_menu_values as $key => $_mw_adminimize_own_nav_menu_value ) {
 								$_mw_adminimize_own_nav_menu_value = trim($_mw_adminimize_own_nav_menu_value);
 								array_push($nav_menu_options, $_mw_adminimize_own_nav_menu_value);
 							}
 							
-							$_mw_adminimize_own_nav_menu_options = _mw_adminimize_getOptionValue('_mw_adminimize_own_nav_menu_options');
+							$_mw_adminimize_own_nav_menu_options = _mw_adminimize_get_option_value('_mw_adminimize_own_nav_menu_options');
 							$_mw_adminimize_own_nav_menu_options = preg_split( "/\r\n/", $_mw_adminimize_own_nav_menu_options );
 							foreach ( (array) $_mw_adminimize_own_nav_menu_options as $key => $_mw_adminimize_own_nav_menu_option ) {
 								$_mw_adminimize_own_nav_menu_option = trim($_mw_adminimize_own_nav_menu_option);
@@ -110,7 +118,7 @@
 					<table summary="config_edit_post" class="widefat">
 						<thead>
 							<tr>
-								<th><?php _e('Your own options', FB_ADMINIMIZE_TEXTDOMAIN ); echo '<br />'; _e('ID or class', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
+								<th><?php _e('Your own Nav Menu options', FB_ADMINIMIZE_TEXTDOMAIN ); echo '<br />'; _e('ID or class', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
 								<th><?php echo '<br />'; _e('Option', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
 							</tr>
 						</thead>
@@ -121,12 +129,12 @@
 							</tr>
 							<tr valign="top">
 								<td>
-									<textarea name="_mw_adminimize_own_nav_menu_options" cols="60" rows="3" id="_mw_adminimize_own_nav_menu_options" style="width: 95%;" ><?php echo _mw_adminimize_getOptionValue('_mw_adminimize_own_nav_menu_options'); ?></textarea>
+									<textarea name="_mw_adminimize_own_nav_menu_options" cols="60" rows="3" id="_mw_adminimize_own_nav_menu_options" style="width: 95%;" ><?php echo _mw_adminimize_get_option_value('_mw_adminimize_own_nav_menu_options'); ?></textarea>
 									<br />
 									<?php _e('Possible nomination for ID or class. Separate multiple nominations through a carriage return.', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
 								</td>
 								<td>
-									<textarea class="code" name="_mw_adminimize_own_nav_menu_values" cols="60" rows="3" id="_mw_adminimize_own_nav_menu_values" style="width: 95%;" ><?php echo _mw_adminimize_getOptionValue('_mw_adminimize_own_nav_menu_values'); ?></textarea>
+									<textarea class="code" name="_mw_adminimize_own_nav_menu_values" cols="60" rows="3" id="_mw_adminimize_own_nav_menu_values" style="width: 95%;" ><?php echo _mw_adminimize_get_option_value('_mw_adminimize_own_nav_menu_values'); ?></textarea>
 									<br />
 									<?php _e('Possible IDs or classes. Separate multiple values through a carriage return.', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
 								</td>

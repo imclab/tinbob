@@ -1,5 +1,13 @@
 <?php
-// options for Links
+/**
+ * @package Adminimize
+ * @subpackage Link Options
+ * @author Frank Bültge
+ */
+if ( ! function_exists( 'add_action' ) ) {
+	echo "Hi there!  I'm just a part of plugin, not much I can do when called directly.";
+	exit;
+}
 ?>
 
 		<div id="poststuff" class="ui-sortable meta-box-sortables">
@@ -23,7 +31,7 @@
 						<tbody>
 						<?php
 							foreach ($user_roles as $role) {
-								$disabled_link_option_[$role]  = _mw_adminimize_getOptionValue('mw_adminimize_disabled_link_option_'. $role .'_items');
+								$disabled_link_option_[$role]  = _mw_adminimize_get_option_value('mw_adminimize_disabled_link_option_'. $role .'_items');
 							}
 								
 							$link_options = array(
@@ -48,14 +56,14 @@
 																			__('Publish Actions', FB_ADMINIMIZE_TEXTDOMAIN)
 																			);
 							
-							$_mw_adminimize_own_link_values  = _mw_adminimize_getOptionValue('_mw_adminimize_own_link_values');
+							$_mw_adminimize_own_link_values  = _mw_adminimize_get_option_value('_mw_adminimize_own_link_values');
 							$_mw_adminimize_own_link_values = preg_split( "/\r\n/", $_mw_adminimize_own_link_values );
 							foreach ( (array) $_mw_adminimize_own_link_values as $key => $_mw_adminimize_own_link_value ) {
 								$_mw_adminimize_own_link_value = trim($_mw_adminimize_own_link_value);
 								array_push($link_options, $_mw_adminimize_own_link_value);
 							}
 							
-							$_mw_adminimize_own_link_options = _mw_adminimize_getOptionValue('_mw_adminimize_own_link_options');
+							$_mw_adminimize_own_link_options = _mw_adminimize_get_option_value('_mw_adminimize_own_link_options');
 							$_mw_adminimize_own_link_options = preg_split( "/\r\n/", $_mw_adminimize_own_link_options );
 							foreach ( (array) $_mw_adminimize_own_link_options as $key => $_mw_adminimize_own_link_option ) {
 								$_mw_adminimize_own_link_option = trim($_mw_adminimize_own_link_option);
@@ -89,7 +97,7 @@
 					<table summary="config_edit_post" class="widefat">
 						<thead>
 							<tr>
-								<th><?php _e('Your own options', FB_ADMINIMIZE_TEXTDOMAIN ); echo '<br />'; _e('ID or class', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
+								<th><?php _e('Your own Link options', FB_ADMINIMIZE_TEXTDOMAIN ); echo '<br />'; _e('ID or class', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
 								<th><?php echo '<br />'; _e('Option', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
 							</tr>
 						</thead>
@@ -100,12 +108,12 @@
 							</tr>
 							<tr valign="top">
 								<td>
-									<textarea name="_mw_adminimize_own_link_options" cols="60" rows="3" id="_mw_adminimize_own_link_options" style="width: 95%;" ><?php echo _mw_adminimize_getOptionValue('_mw_adminimize_own_link_options'); ?></textarea>
+									<textarea name="_mw_adminimize_own_link_options" cols="60" rows="3" id="_mw_adminimize_own_link_options" style="width: 95%;" ><?php echo _mw_adminimize_get_option_value('_mw_adminimize_own_link_options'); ?></textarea>
 									<br />
 									<?php _e('Possible nomination for ID or class. Separate multiple nominations through a carriage return.', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
 								</td>
 								<td>
-									<textarea class="code" name="_mw_adminimize_own_link_values" cols="60" rows="3" id="_mw_adminimize_own_link_values" style="width: 95%;" ><?php echo _mw_adminimize_getOptionValue('_mw_adminimize_own_link_values'); ?></textarea>
+									<textarea class="code" name="_mw_adminimize_own_link_values" cols="60" rows="3" id="_mw_adminimize_own_link_values" style="width: 95%;" ><?php echo _mw_adminimize_get_option_value('_mw_adminimize_own_link_values'); ?></textarea>
 									<br />
 									<?php _e('Possible IDs or classes. Separate multiple values through a carriage return.', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
 								</td>

@@ -1,5 +1,13 @@
 <?php
-// backend options
+/**
+ * @package Adminimize
+ * @subpackage Backend Options
+ * @author Frank Bültge
+ */
+if ( ! function_exists( 'add_action' ) ) {
+	echo "Hi there!  I'm just a part of plugin, not much I can do when called directly.";
+	exit;
+}
 ?>
 
 		<div id="poststuff" class="ui-sortable meta-box-sortables">
@@ -17,7 +25,7 @@
 							<tr valign="top" class="form-invalid">
 								<td><?php _e('Exclude Super Admin', FB_ADMINIMIZE_TEXTDOMAIN ); ?></td>
 								<td>
-									<?php $_mw_adminimize_exclude_super_admin = _mw_adminimize_getOptionValue('_mw_adminimize_exclude_super_admin'); ?>
+									<?php $_mw_adminimize_exclude_super_admin = _mw_adminimize_get_option_value('_mw_adminimize_exclude_super_admin'); ?>
 									<select name="_mw_adminimize_exclude_super_admin">
 										<option value="0"<?php if ($_mw_adminimize_exclude_super_admin == '0') { echo ' selected="selected"'; } ?>><?php _e('Default', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
 										<option value="1"<?php if ($_mw_adminimize_exclude_super_admin == '1') { echo ' selected="selected"'; } ?>><?php _e('Activate', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
@@ -28,7 +36,7 @@
 							<tr valign="top">
 								<td><?php _e('User-Info', FB_ADMINIMIZE_TEXTDOMAIN ); ?></td>
 								<td>
-									<?php $_mw_adminimize_user_info = _mw_adminimize_getOptionValue('_mw_adminimize_user_info'); ?>
+									<?php $_mw_adminimize_user_info = _mw_adminimize_get_option_value('_mw_adminimize_user_info'); ?>
 									<select name="_mw_adminimize_user_info">
 										<option value="0"<?php if ($_mw_adminimize_user_info == '0') { echo ' selected="selected"'; } ?>><?php _e('Default', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
 										<option value="1"<?php if ($_mw_adminimize_user_info == '1') { echo ' selected="selected"'; } ?>><?php _e('Hide', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
@@ -41,7 +49,7 @@
 							<tr valign="top" class="form-invalid">
 								<td><?php _e('Change User-Info, redirect to', FB_ADMINIMIZE_TEXTDOMAIN ); ?></td>
 								<td>
-									<?php $_mw_adminimize_ui_redirect = _mw_adminimize_getOptionValue('_mw_adminimize_ui_redirect'); ?>
+									<?php $_mw_adminimize_ui_redirect = _mw_adminimize_get_option_value('_mw_adminimize_ui_redirect'); ?>
 									<select name="_mw_adminimize_ui_redirect" <?php if ( isset($disabled_item) ) echo $disabled_item; ?>>
 										<option value="0"<?php if ($_mw_adminimize_ui_redirect == '0') { echo ' selected="selected"'; } ?>><?php _e('Default', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
 										<option value="1"<?php if ($_mw_adminimize_ui_redirect == '1') { echo ' selected="selected"'; } ?>><?php _e('Frontpage of the Blog', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
@@ -51,7 +59,7 @@
 							<tr valign="top">
 								<td><?php _e('Footer', FB_ADMINIMIZE_TEXTDOMAIN ); ?></td>
 								<td>
-									<?php $_mw_adminimize_footer = _mw_adminimize_getOptionValue('_mw_adminimize_footer'); ?>
+									<?php $_mw_adminimize_footer = _mw_adminimize_get_option_value('_mw_adminimize_footer'); ?>
 									<select name="_mw_adminimize_footer">
 										<option value="0"<?php if ($_mw_adminimize_footer == '0') { echo ' selected="selected"'; } ?>><?php _e('Default', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
 										<option value="1"<?php if ($_mw_adminimize_footer == '1') { echo ' selected="selected"'; } ?>><?php _e('Hide', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
@@ -61,7 +69,7 @@
 							<tr valign="top">
 								<td><?php _e('Header', FB_ADMINIMIZE_TEXTDOMAIN ); ?></td>
 								<td>
-									<?php $_mw_adminimize_header = _mw_adminimize_getOptionValue('_mw_adminimize_header'); ?>
+									<?php $_mw_adminimize_header = _mw_adminimize_get_option_value('_mw_adminimize_header'); ?>
 									<select name="_mw_adminimize_header">
 										<option value="0"<?php if ($_mw_adminimize_header == '0') { echo ' selected="selected"'; } ?>><?php _e('Default', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
 										<option value="1"<?php if ($_mw_adminimize_header == '1') { echo ' selected="selected"'; } ?>><?php _e('Hide', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
@@ -69,19 +77,9 @@
 								</td>
 							</tr>
 							<tr valign="top">
-								<td><?php _e('WriteScroll', FB_ADMINIMIZE_TEXTDOMAIN ); ?></td>
-								<td>
-									<?php $_mw_adminimize_writescroll = _mw_adminimize_getOptionValue('_mw_adminimize_writescroll'); ?>
-									<select name="_mw_adminimize_writescroll">
-										<option value="0"<?php if ($_mw_adminimize_writescroll == '0') { echo ' selected="selected"'; } ?>><?php _e('Default', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
-										<option value="1"<?php if ($_mw_adminimize_writescroll == '1') { echo ' selected="selected"'; } ?>><?php _e('Activate', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
-									</select> <?php _e('With the WriteScroll option active, these pages will automatically scroll to an optimal position for editing, when you visit Write Post or Write Page.', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
-								</td>
-							</tr>
-							<tr valign="top">
 								<td><?php _e('Timestamp', FB_ADMINIMIZE_TEXTDOMAIN ); ?></td>
 								<td>
-									<?php $_mw_adminimize_timestamp = _mw_adminimize_getOptionValue('_mw_adminimize_timestamp'); ?>
+									<?php $_mw_adminimize_timestamp = _mw_adminimize_get_option_value('_mw_adminimize_timestamp'); ?>
 									<select name="_mw_adminimize_timestamp">
 										<option value="0"<?php if ($_mw_adminimize_timestamp == '0') { echo ' selected="selected"'; } ?>><?php _e('Default', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
 										<option value="1"<?php if ($_mw_adminimize_timestamp == '1') { echo ' selected="selected"'; } ?>><?php _e('Activate', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
@@ -91,7 +89,7 @@
 							<tr valign="top">
 								<td><?php _e('Thickbox FullScreen', FB_ADMINIMIZE_TEXTDOMAIN ); ?></td>
 								<td>
-									<?php $_mw_adminimize_tb_window = _mw_adminimize_getOptionValue('_mw_adminimize_tb_window'); ?>
+									<?php $_mw_adminimize_tb_window = _mw_adminimize_get_option_value('_mw_adminimize_tb_window'); ?>
 									<select name="_mw_adminimize_tb_window">
 										<option value="0"<?php if ($_mw_adminimize_tb_window == '0') { echo ' selected="selected"'; } ?>><?php _e('Default', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
 										<option value="1"<?php if ($_mw_adminimize_tb_window == '1') { echo ' selected="selected"'; } ?>><?php _e('Activate', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
@@ -101,7 +99,7 @@
 							<tr valign="top">
 								<td><?php _e('Flashuploader', FB_ADMINIMIZE_TEXTDOMAIN ); ?></td>
 								<td>
-									<?php $_mw_adminimize_control_flashloader = _mw_adminimize_getOptionValue('_mw_adminimize_control_flashloader'); ?>
+									<?php $_mw_adminimize_control_flashloader = _mw_adminimize_get_option_value('_mw_adminimize_control_flashloader'); ?>
 									<select name="_mw_adminimize_control_flashloader">
 										<option value="0"<?php if ($_mw_adminimize_control_flashloader == '0') { echo ' selected="selected"'; } ?>><?php _e('Default', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
 										<option value="1"<?php if ($_mw_adminimize_control_flashloader == '1') { echo ' selected="selected"'; } ?>><?php _e('Activate', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
@@ -111,7 +109,7 @@
 							<tr valign="top">
 								<td><?php _e('Category Height', FB_ADMINIMIZE_TEXTDOMAIN ); ?></td>
 								<td>
-									<?php $_mw_adminimize_cat_full = _mw_adminimize_getOptionValue('_mw_adminimize_cat_full'); ?>
+									<?php $_mw_adminimize_cat_full = _mw_adminimize_get_option_value('_mw_adminimize_cat_full'); ?>
 									<select name="_mw_adminimize_cat_full">
 										<option value="0"<?php if ($_mw_adminimize_cat_full == '0') { echo ' selected="selected"'; } ?>><?php _e('Default', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
 										<option value="1"<?php if ($_mw_adminimize_cat_full == '1') { echo ' selected="selected"'; } ?>><?php _e('Activate', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
@@ -121,19 +119,19 @@
 							<tr valign="top">
 								<td><?php _e('Advice in Footer', FB_ADMINIMIZE_TEXTDOMAIN ); ?></td>
 								<td>
-									<?php $_mw_adminimize_advice = _mw_adminimize_getOptionValue('_mw_adminimize_advice'); ?>
+									<?php $_mw_adminimize_advice = _mw_adminimize_get_option_value('_mw_adminimize_advice'); ?>
 									<select name="_mw_adminimize_advice">
 										<option value="0"<?php if ($_mw_adminimize_advice == '0') { echo ' selected="selected"'; } ?>><?php _e('Default', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
 										<option value="1"<?php if ($_mw_adminimize_advice == '1') { echo ' selected="selected"'; } ?>><?php _e('Activate', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
 									</select>
-									<textarea style="width: 85%;" class="code" rows="1" cols="60" name="_mw_adminimize_advice_txt" id="_mw_adminimize_advice_txt" ><?php echo htmlspecialchars(stripslashes(_mw_adminimize_getOptionValue('_mw_adminimize_advice_txt'))); ?></textarea><br /><?php _e('In the Footer you can display an  advice for changing the Default-design, (x)HTML is possible.', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
+									<textarea style="width: 85%;" class="code" rows="1" cols="60" name="_mw_adminimize_advice_txt" id="_mw_adminimize_advice_txt" ><?php echo htmlspecialchars(stripslashes(_mw_adminimize_get_option_value('_mw_adminimize_advice_txt'))); ?></textarea><br /><?php _e('In the Footer you can display an  advice for changing the Default-design, (x)HTML is possible.', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
 								</td>
 							</tr>
 							<?php
 							// when remove dashboard
 							foreach ($user_roles as $role) {
-								$disabled_menu_[$role] = _mw_adminimize_getOptionValue('mw_adminimize_disabled_menu_'. $role .'_items');
-								$disabled_submenu_[$role] = _mw_adminimize_getOptionValue('mw_adminimize_disabled_submenu_'. $role .'_items');
+								$disabled_menu_[$role] = _mw_adminimize_get_option_value('mw_adminimize_disabled_menu_'. $role .'_items');
+								$disabled_submenu_[$role] = _mw_adminimize_get_option_value('mw_adminimize_disabled_submenu_'. $role .'_items');
 							}
 
 							$disabled_menu_all = array();
@@ -142,15 +140,15 @@
 								array_push($disabled_menu_all, $disabled_submenu_[$role]);
 							}
 
-							if ($disabled_menu_all != '') {
-								if ( !recursive_in_array('index.php', $disabled_menu_all) ) {
+							if ( '' != $disabled_menu_all ) {
+								if ( ! _mw_adminimize_recursive_in_array('index.php', $disabled_menu_all) ) {
 									$disabled_item2 = ' disabled="disabled"';
 								}
 								?>
 								<tr valign="top" class="form-invalid">
 									<td><?php _e('Dashboard deactivate, redirect to', FB_ADMINIMIZE_TEXTDOMAIN ); ?></td>
 									<td>
-										<?php $_mw_adminimize_db_redirect = _mw_adminimize_getOptionValue('_mw_adminimize_db_redirect'); ?>
+										<?php $_mw_adminimize_db_redirect = _mw_adminimize_get_option_value('_mw_adminimize_db_redirect'); ?>
 										<select name="_mw_adminimize_db_redirect"<?php if ( isset($disabled_item2) ) echo $disabled_item2; ?>>
 											<option value="0"<?php if ($_mw_adminimize_db_redirect == '0') { echo ' selected="selected"'; } ?>><?php _e('Default', FB_ADMINIMIZE_TEXTDOMAIN ); ?> (profile.php)</option>
 											<option value="1"<?php if ($_mw_adminimize_db_redirect == '1') { echo ' selected="selected"'; } ?>><?php _e('Manage Posts', FB_ADMINIMIZE_TEXTDOMAIN ); ?> (edit.php)</option>
@@ -160,7 +158,7 @@
 											<option value="5"<?php if ($_mw_adminimize_db_redirect == '5') { echo ' selected="selected"'; } ?>><?php _e('Comments', FB_ADMINIMIZE_TEXTDOMAIN ); ?> (edit-comments.php)</option>
 											<option value="6"<?php if ($_mw_adminimize_db_redirect == '6') { echo ' selected="selected"'; } ?>><?php _e('other Page', FB_ADMINIMIZE_TEXTDOMAIN ); ?></option>
 										</select>
-										<textarea style="width: 85%;" class="code" rows="1" cols="60" name="_mw_adminimize_db_redirect_txt" id="_mw_adminimize_db_redirect_txt" ><?php echo htmlspecialchars(stripslashes(_mw_adminimize_getOptionValue('_mw_adminimize_db_redirect_txt'))); ?></textarea>
+										<textarea style="width: 85%;" class="code" rows="1" cols="60" name="_mw_adminimize_db_redirect_txt" id="_mw_adminimize_db_redirect_txt" ><?php echo htmlspecialchars(stripslashes(_mw_adminimize_get_option_value('_mw_adminimize_db_redirect_txt'))); ?></textarea>
 										<br /><?php _e('You have deactivated the Dashboard, please select a page for redirection or define custom url, include http://?', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
 									</td>
 								</tr>
