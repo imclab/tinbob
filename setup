@@ -1,0 +1,50 @@
+#!/bin/bash
+# Setup symlinks wp-content
+
+CUR_DIR=$(dirname $0)
+CUR_DIR=`pwd`
+cd ..
+PARENT_DIR=`pwd`
+
+SRC_DIR=${CUR_DIR}/
+
+if [ -z $1  ]
+	then
+		DST_DIR=${PARENT_DIR}/../tinbob.com/
+		echo "Using automatic target directory: [$DST_DIR]"
+	else
+		DST_DIR=$1/
+		echo "Using custom target directory: [$DST_DIR]"
+fi
+
+echo ""
+echo "-----------------------------"
+echo "Backing up wp-content ..."
+cd $DST_DIR
+mv wp-content wp-content_old
+echo $DST_DIR"wp-content/"
+echo "moved to -> "$SRC_DIR"wp-content_old/"
+
+echo ""
+echo "-----------------------------"
+echo "Creating wp-content symlink..."
+ln -s ${SRC_DIR}wp-content/ ${DST_DIR}wp-content 
+echo $DST_DIR"wp-content/"
+echo "links to -> "$SRC_DIR"wp-content/"
+
+echo ""
+echo "-----------------------------"
+echo "Backing up wp-config.php ..."
+cd $DST_DIR
+mv wp-config.php wp-config_old.php
+echo $DST_DIR"wp-config.php"
+echo "moved to -> "$SRC_DIR"wp-config_old.php"
+
+echo ""
+echo "-----------------------------"
+echo "Coping wp-config.php..."
+cp ${SRC_DIR}config/wp-config.php ${DST_DIR}wp-config.php 
+echo $DST_DIR"config/wp-config.php"
+echo "copied to -> "$SRC_DIR"wp-config.php"
+
+exit 1
