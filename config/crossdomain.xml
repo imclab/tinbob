@@ -1,0 +1,6 @@
+<!--l version="1.0--><!--CTYPE cross-domain-policySYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dt-->
+<cross-domain-policy>
+<allow-access-from domain="www.tinbob.com" />
+<allow-access-from domain="tinbob.com" />
+<allow-access-from domain="www.tinbob.dev" />
+<allow-access-from domain="tinbob.dev" />
