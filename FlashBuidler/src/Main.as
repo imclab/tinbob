@@ -79,7 +79,7 @@ package
 			// setup the embed branch
 			_n.setup(this.loaderInfo.parameters.branch);
 			// Load content
-			_c.loadMainContent("http://tinbob.dev/");
+			_c.loadMainContent("http://tinbob.com/");
 			
 			/// Stage rezize;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
