@@ -7,7 +7,7 @@ Version: 1.0.7
 Author: Dan Phiffer
 Author URI: http://phiffer.org/
 */
-
+define('JSON_API_DIR', 'pb-json-api');
 $dir = json_api_dir();
 @include_once "$dir/singletons/api.php";
 @include_once "$dir/singletons/query.php";
