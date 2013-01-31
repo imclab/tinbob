@@ -47,4 +47,11 @@ cp ${SRC_DIR}config/wp-config.php ${DST_DIR}wp-config.php
 echo $DST_DIR"config/wp-config.php"
 echo "copied to -> "$SRC_DIR"wp-config.php"
 
+echo ""
+echo "-----------------------------"
+echo "Coping crossdomain.xml..."
+cp ${SRC_DIR}config/crossdomain.xml ${DST_DIR}wp-crossdomain.xml 
+echo $DST_DIR"config/crossdomain.xml"
+echo "copied to -> "$SRC_DIR"crossdomain.xml"
+
 exit 1

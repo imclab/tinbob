@@ -8,7 +8,8 @@ if ( ! function_exists( 'add_action' ) ) {
 	echo "Hi there!  I'm just a part of plugin, not much I can do when called directly.";
 	exit;
 }
-
+// reset
+$post_type = '';
 $args = array( 'public' => TRUE, '_builtin' => FALSE );
 foreach ( get_post_types( $args ) as $post_type ) {
 	$post_type_object = get_post_type_object($post_type);
@@ -48,7 +49,7 @@ foreach ( get_post_types( $args ) as $post_type ) {
 								'.side-info',
 								'#notice',
 								'#post-body h2',
-								'#media-buttons',
+								'#media-buttons, #wp-content-media-buttons',
 								'#wp-word-count',
 								'#slugdiv,#edit-slug-box',
 								'#misc-publishing-actions',
@@ -64,7 +65,10 @@ foreach ( get_post_types( $args ) as $post_type ) {
 										$post_type_support = 'pageparentdiv';
 									if ( 'custom-fields' == $post_type_support )
 										$post_type_support = 'postcustom';
-									array_push( $metaboxes, '#' . $post_type_support . ', #' . $post_type_support . 'div' );
+									array_push( 
+										$metaboxes, 
+										'#' . $post_type_support . ', #' . $post_type_support . 'div, th.column-' . $post_type_support . ', td.' . $post_type_support
+									); // td for raw in edit screen
 							}
 							if ( function_exists('current_theme_supports') && 
 								 current_theme_supports( 'post-thumbnails', $post_type )
@@ -75,7 +79,7 @@ foreach ( get_post_types( $args ) as $post_type ) {
 
 							// quick edit areas, id and class
 							$quickedit_areas = array(
-								'div.row-actions .inline',
+								'div.row-actions, div.row-actions .inline',
 								'fieldset.inline-edit-col-left',
 								'fieldset.inline-edit-col-left label',
 								'fieldset.inline-edit-col-left label.inline-edit-author',

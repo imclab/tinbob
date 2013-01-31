@@ -2,5 +2,5 @@
  * remove footer
  */
 jQuery(document).ready(function($) {
-	$('#footer').remove();
+	$('#footer, #footer-left, #footer-upgrade').remove();
 });

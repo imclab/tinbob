@@ -1,10 +1,10 @@
 === Adminimize ===
-Contributors: Bueltge
-Donate link: http://bueltge.de/wunschliste/
+Contributors: Bueltge, inpsyde
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4578111
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 2.5
-Tested up to: 3.4-alpha
-Stable tag: 1.7.26
+Tested up to: 3.6-alpha
+Stable tag: 1.8.1
 
 Adminimize is a WordPress plugin that lets you hide 'unnecessary' items from the WordPress backend and many many more ...
 
@@ -17,10 +17,6 @@ With version 1.6.1 it is possible to add own options for hide areas in the backe
 
 = Support Custom Post Type =
 Also it is possible with version 1.7.18 to use on custom post types; hide 'unnecessary' areas on the custom post types for different roles and post types.
-
-= Compatibility with the drop-down menu plugins =
-1. [Ozh Admin Drop Down Menu](http://planetozh.com/blog/my-projects/wordpress-admin-menu-drop-down-css/ "Admin Drop Down Menu for WordPress 2.5") by Ozh
-1. [Drop Down Admin Menus](http://www.stuff.yellowswordfish.com/ "Drop Down Admin Menus for WordPress 2.5") by Andy Staines
 
 = Compatibility with the plugins for MetaBoxes in Write-area =
 1. You can add your own options, you must only see for css selectors
@@ -59,15 +55,15 @@ The plugin changes the administration backend and gives you the power to assign 
 1. you can set an role to view the areas on link page, edit post, edit page and global
 1. you can add own options for set rights to role
 1. it is possible to disable HTML-Editor on edit-area, only Visual-tab
-1. remove admin bar
-1. remove items on custom post types
-1. ... many more
+1. remove widgets in widgets settings for different role
+1. remove admin bar for different role
+1. remove admin bar items for different role
+1. remove items on custom post types for different role
+1. ... many many more
 
-= More Plugins = 
-Please see also my [Premium Plugins](http://wpplugins.com/author/malo.conny/). Maybe you find an solution for your requirement.
+**Made by [Inpsyde](http://inpsyde.com) &middot; We love WordPress**
 
-= Interested in WordPress tips and tricks =
-You may also be interested in WordPress tips and tricks at [WP Engineer](http://wpengineer.com/) or for german people [bueltge.de](http://bueltge.de/) 
+Have a look at the premium plugins in our [market](http://marketpress.com).
 
 == Installation ==
 1. Unpack the download-package
@@ -93,6 +89,31 @@ See on [the official website](http://bueltge.de/wordpress-admin-theme-adminimize
 1. Adminimize Theme how in WordPress 2.3
 
 == Changelog ==
+= v1.8.1 (01/11/2013) =
+* Fix PHP notice on message for network
+* Check for active links manager; change from WP 3.5
+* Add Widget settings (Beta)
+* Fix for remove admin bar in backend
+* Remove Backend options, there not usable with WP 3.5 and earlier
+* Fix 'Category Height' in post to use also in newer versions of WP
+* Fix to hide foorer, but it is usable to add custom content
+* Fix Hints, Options for Multisite install
+* Add Admin Bar options (Beta)
+
+= v1.8.0 =
+* Simple Support for WP Multisite
+* Enhancement for hide Text-Tab on editors in custom post types
+* Small fix for PHP notice
+
+= v1.7.27 =
+* Fix for hide Admin Bar in WP 3.4
+* Fix for remove sections on custom post types in edit screen table
+* Enhancements for reduce sections on edit post and page
+* Enhancement for User Info to use also in Admin Bar in front end
+* Fix for different pages in admin, see [forum thread](http://wordpress.org/support/topic/plugin-adminimize-hide-page-and-subpages-editphp)
+* Fix, if you don't use redirect for php notice
+* Add romanian language
+
 = v1.7.26 =
 * Grammerfix for settings message [see thread](http://wordpress.org/support/topic/plugin-adminimize-what-does-the-settings-page-ignores-this-settings-mean?replies=4)
 * Fix for custom areas on Custom Post Types, [see thread](http://wordpress.org/support/topic/plugin-adminimize-bug-in-custom-metabox-ids-for-custom-types?replies=3)
@@ -375,6 +396,7 @@ The plugin comes with various translations, please refer to the [WordPress Codex
 * Thanks to [Outshine Solutions](http://outshinesolutions.com/web-hosting/web-hosting-india.html) for hindi language files.
 * Thanks to [ray.s](http://letsbefamous.com/) for irish translation.
 * Thanks for bulgarian language files to [Web Geek](http://webhostinggeeks.com/)
+* Thanks for romanian language to [Alexander Ovsov - Web Geek](http://webhostinggeeks.com/)
 
 
 == Frequently Asked Questions ==
