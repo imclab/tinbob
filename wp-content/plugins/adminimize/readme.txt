@@ -1,36 +1,28 @@
 === Adminimize ===
-Contributors: Bueltge
-Donate link: http://bueltge.de/wunschliste/
+Contributors: Bueltge, inpsyde
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4578111
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 2.5
-Tested up to: 3.1.1
-Stable tag: 1.7.17
+Tested up to: 3.6-alpha
+Stable tag: 1.8.1
 
 Adminimize is a WordPress plugin that lets you hide 'unnecessary' items from the WordPress backend and many many more ...
 
 == Description ==
 Visually compresses the administratrive header so that more admin page content can be initially seen. Also moves 'Dashboard' onto the main administrative menu because having it sit in the tip-top black bar was ticking me off and many other changes in the edit-area. Adminimize is a WordPress plugin that lets you hide 'unnecessary' items from the WordPress administration menu, submenu and even the 'Dashboard', with forwarding to the Manage-page. On top of that, you can also hide post meta controls on the Write page and other areas in the admin-area and Write-page, so as to simplify the editing interface. Compatible with WordPress 2.5 or later. 
-Configure all metaboxes and other areas in the write-area. The new theme move the Tags- and Categorys-box to the sidebar, switch off optional metaboxes and other areas in the write-area. Scoll automatocly to the Textbox, when you click the write-button. Many options for menu, submenu and all areas, metaboxes in the write-area, separated for all roles in WordPress.
+Configure all metaboxes and other areas in the write-area. The new theme move the Tags- and Categorys-box to the sidebar, switch off optional metaboxes and other areas in the write-area. Many options for menu, submenu and all areas, metaboxes in the write-area, separated for all roles in WordPress.
 
+= Support Custom Options on all different post types =
 With version 1.6.1 it is possible to add own options for hide areas in the backend of WordPress. It is easy and you must only forgive ID or class of the tag. Also it is possible to use a fixed menu and header.
 
-= Compatibility with the drop-down menu plugins =
-1. [Ozh Admin Drop Down Menu](http://planetozh.com/blog/my-projects/wordpress-admin-menu-drop-down-css/ "Admin Drop Down Menu for WordPress 2.5") by Ozh
-1. [Drop Down Admin Menus](http://www.stuff.yellowswordfish.com/ "Drop Down Admin Menus for WordPress 2.5") by Andy Staines
+= Support Custom Post Type =
+Also it is possible with version 1.7.18 to use on custom post types; hide 'unnecessary' areas on the custom post types for different roles and post types.
 
 = Compatibility with the plugins for MetaBoxes in Write-area =
-1. [Simple Tag](http://wordpress.org/extend/plugins/simple-tags "Simple Tag") by Amaury BALMER
-1. [Text Control](http://wordpress.org/extend/plugins/text-control-2/ "Text Control") by Jeff Minard and Frank Bueltge
-1. [All in One SEO Pack](http://semperfiwebdesign.com "All in One SEO Pack") by Michael Torbert
-1. [TDO Mini Forms](http://thedeadone.net/software/tdo-mini-forms-wordpress-plugin/ "TDO Mini Forms") by Mark Cunningham
-1. [Post Notification](http://pn.xn--strbe-mva.de/ "Post Notification") by Moritz Str&uuml;be
-1. [HTML Special Characters Helper](http://coffee2code.com/wp-plugins/html-special-characters-helper "HTML Special Characters Helper") by Scott Reilly
 1. You can add your own options, you must only see for css selectors
 
 = Requirements =
-1. WordPress version 2.5 and later
-
-Please visit [the official website](http://bueltge.de/wordpress-admin-theme-adminimize/674/ "Adminimize") for further details and the latest information on this plugin.
+1. WordPress version 2.8 and later
 
 = What does this plugin do? =
 The plugin changes the administration backend and gives you the power to assign rights on certain parts. Admins can activate/deactivate every part of the menu and even parts of the submenu. Meta fields can be administered separately for posts and pages. Certain parts of the write menu can be deactivated separately for admins or non-admins. The header of the backend is minimized and optimized to give you more space and the structure of the menu gets changed to make it more logical - this can all be done per user so each user can have his own settings.
@@ -63,19 +55,15 @@ The plugin changes the administration backend and gives you the power to assign 
 1. you can set an role to view the areas on link page, edit post, edit page and global
 1. you can add own options for set rights to role
 1. it is possible to disable HTML-Editor on edit-area, only Visual-tab
-1. ... many more
+1. remove widgets in widgets settings for different role
+1. remove admin bar for different role
+1. remove admin bar items for different role
+1. remove items on custom post types for different role
+1. ... many many more
 
-= Localizations =
-* Also Thanks to [Ovidio](http://pacura.ru/ "pacaru.ru") for an translations the details in english and [G&uuml;rkan G&uuml;r](http://www.seqizz.net/ "G&uuml;rkan G&uuml;r") for translation in turkish.
-* Thanks to [Gabriel Scheffer](http://www.gabrielscheffer.com.ar "Gabriel Scheffer") for the spanish language files.
-* Thanks to [Andrea Piccinelli] for the italian language files.
-* Thanks to [Fat Cow](http://www.fatcow.com/ "Fat Cow") for the belarussian language files.
-* Thanks to [Rene](http://wpwebshop.com/ "wpwebshop.com") for dutch translation.
-* Thanks to [GeorgWP](http://wordpress.blogos.dk/s%C3%B8g-efter-downloads/?did=208 "wordpress.blogos.dk/s%C3%B8g-efter-downloads/?did=208") for danish language files.
-* Thanks to [Scavenger](http://www.photos-marseille.fr) for french language files.
+**Made by [Inpsyde](http://inpsyde.com) &middot; We love WordPress**
 
-= Interested in WordPress tips and tricks =
-You may also be interested in WordPress tips and tricks at [WP Engineer](http://wpengineer.com/) or for german people [bueltge.de](http://bueltge.de/) 
+Have a look at the premium plugins in our [market](http://marketpress.com).
 
 == Installation ==
 1. Unpack the download-package
@@ -84,12 +72,15 @@ You may also be interested in WordPress tips and tricks at [WP Engineer](http://
 4. Selecting Colour Scheme and Theme, selection in Your Profile, go to your User Profile (under `Users` > `Your Profile` or by clicking on your name at the top right corner of the administration panel).
 5. Administrator can go to `Options` > `Adminimize` menu and configure the plugin (Menu, Submenu, Metaboxes, ...)
 
+* or use the automatic install via backend of WordPress
+
 = Advice =
 Please use the `Deinstall-Function` in the option-area before update to version 1.4! Version 1.4 and higher have only one database entry and the `Deinstall-Option` deinstall the old entrys.
 
 See on [the official website](http://bueltge.de/wordpress-admin-theme-adminimize/674/ "Adminimize").
 
 == Screenshots ==
+1. Settings in WordPress 3.2-beta with two Custom Post Types
 1. configure-area for user/admin; options for metaboxes, areas in write-area and menu in WordPress 2.7/2.8
 1. configure-area for user in WordPress 2.7/2.8
 1. Small tweak for design higher WP 2.7, save 50px over the menu
@@ -98,6 +89,83 @@ See on [the official website](http://bueltge.de/wordpress-admin-theme-adminimize
 1. Adminimize Theme how in WordPress 2.3
 
 == Changelog ==
+= v1.8.1 (01/11/2013) =
+* Fix PHP notice on message for network
+* Check for active links manager; change from WP 3.5
+* Add Widget settings (Beta)
+* Fix for remove admin bar in backend
+* Remove Backend options, there not usable with WP 3.5 and earlier
+* Fix 'Category Height' in post to use also in newer versions of WP
+* Fix to hide foorer, but it is usable to add custom content
+* Fix Hints, Options for Multisite install
+* Add Admin Bar options (Beta)
+
+= v1.8.0 =
+* Simple Support for WP Multisite
+* Enhancement for hide Text-Tab on editors in custom post types
+* Small fix for PHP notice
+
+= v1.7.27 =
+* Fix for hide Admin Bar in WP 3.4
+* Fix for remove sections on custom post types in edit screen table
+* Enhancements for reduce sections on edit post and page
+* Enhancement for User Info to use also in Admin Bar in front end
+* Fix for different pages in admin, see [forum thread](http://wordpress.org/support/topic/plugin-adminimize-hide-page-and-subpages-editphp)
+* Fix, if you don't use redirect for php notice
+* Add romanian language
+
+= v1.7.26 =
+* Grammerfix for settings message [see thread](http://wordpress.org/support/topic/plugin-adminimize-what-does-the-settings-page-ignores-this-settings-mean?replies=4)
+* Fix for custom areas on Custom Post Types, [see thread](http://wordpress.org/support/topic/plugin-adminimize-bug-in-custom-metabox-ids-for-custom-types?replies=3)
+* Exclude backend theme options, was used only smaller 2.0 of WP
+* Exclude Hint in Footer
+* Exclude writescroll options
+* Different cleaner actions
+
+= v1.7.25 =
+* Update for fix menu-items with entities
+* [Fix](http://plugins.trac.wordpress.org/changeset/494274) for display settings on menu, if items are deactivated
+* Add Separator to settings of menu, for hide this for different roles
+* Add notice for settings page, that no settings work on this page
+* Fix rewrite, if change the user info area and define an rewrite
+* List Separator on menu-items; also possible to hide this
+
+= v1.7.24 =
+* Maintenance: add ID for hide html-tab on Edtior also in WP 3.3
+* Bugfixing for WP 3.2.1 with the new functions :(
+
+= v1.7.23 =
+* Maintenance: change function to remove admin bar for WP 3.3, see [Forum item](http://wordpress.org/support/topic/694201)
+* Maintenance: change for USer Info to works also in WP 3.3
+
+= v1.7.22 =
+* Security fix for $_GET on the admin-settings-page
+
+= v1.7.21 =
+* SORRY: i had an svn bug; here the cimplete version
+* no changes; only a new commit to svn
+
+= v1.7.20 =
+* fix small bug for use plugin Localization
+* add Dashbaord Widgets to remove for different roles
+
+= v1.7.19 =
+* fix page for links - `link.php`
+* add irish language files
+* add bulgarian language files
+
+= v1.7.18 (06/07/2011) =
+* Fixes Small User info on right top with Admin Bar, also ready for WP 3.2
+* Fixes Error for xmlrpc
+* Add QuickEdit-Areas for hide this
+* Different changes on source
+* With WP 3.2 remove all Admin Styles !
+* Add support for custom post type
+* many small changes on source
+* update de_DE language files
+* tested only in version 3.1 and 3.2-beta; dont test in smaller version
+* add hindi language file
+
 = v1.7.17 (04/11/2011) =
 * Fixes on Admin-CSS Styles for WP 3.*
 * Reduce backend Styles of the Plugins - Goal: kill all styles!!! (to heavy for Maintenance)
@@ -185,7 +253,7 @@ See on [the official website](http://bueltge.de/wordpress-admin-theme-adminimize
 * Add fix for deactive user.php/profile.php
 
 = v1.7.1 (17/06/2009) =
-* Add belarussian language file, thanks to [Fat Cow](http://www.fatcow.com/ "Fat Cow")
+* Add belarussian language file, thanks to Fat Cow
 
 = v1.7.1 (16/06/2009) =
 * changes for load userdate on settings themes; better for performance on blogs with many Users
@@ -316,6 +384,19 @@ Good news, this plugin is free for everyone! Since it's released under the GPL, 
 
 = Translations =
 The plugin comes with various translations, please refer to the [WordPress Codex](http://codex.wordpress.org/Installing_WordPress_in_Your_Language "Installing WordPress in Your Language") for more information about activating the translation. If you want to help to translate the plugin to your language, please have a look at the sitemap.pot file which contains all defintions and may be used with a [gettext](http://www.gnu.org/software/gettext/) editor like [Poedit](http://www.poedit.net/) (Windows).
+
+= Localizations =
+* Also Thanks to [Ovidio](http://pacura.ru/ "pacaru.ru") for an translations the details in english and [G&uuml;rkan G&uuml;r](http://www.seqizz.net/ "G&uuml;rkan G&uuml;r") for translation in turkish.
+* Thanks to [Gabriel Scheffer](http://www.gabrielscheffer.com.ar "Gabriel Scheffer") for the spanish language files.
+* Thanks to [Andrea Piccinelli] for the italian language files.
+* Thanks to Fat Cow for the belarussian language files.
+* Thanks to [Rene](http://wpwebshop.com/ "wpwebshop.com") for dutch translation.
+* Thanks to [GeorgWP](http://wordpress.blogos.dk/s%C3%B8g-efter-downloads/?did=208 "wordpress.blogos.dk/s%C3%B8g-efter-downloads/?did=208") for danish language files.
+* Thanks to [Scavenger](http://www.photos-marseille.fr) for french language files.
+* Thanks to [Outshine Solutions](http://outshinesolutions.com/web-hosting/web-hosting-india.html) for hindi language files.
+* Thanks to [ray.s](http://letsbefamous.com/) for irish translation.
+* Thanks for bulgarian language files to [Web Geek](http://webhostinggeeks.com/)
+* Thanks for romanian language to [Alexander Ovsov - Web Geek](http://webhostinggeeks.com/)
 
 
 == Frequently Asked Questions ==

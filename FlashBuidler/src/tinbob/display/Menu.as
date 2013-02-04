@@ -195,7 +195,7 @@ package tinbob.display
 				}
 			}
 			
-			var linkButton:LinkButton = new LinkButton("http://testarea.tibob.com", "Test Area");
+			var linkButton:LinkButton = new LinkButton("http://testarea.tinbob.com", "Test Area");
 			linkButton.y = buttonVOffset + buttonVSpace * nPosts + 20;
 			linkButton.enable(true);
 			_buttonsContainer.addChild(linkButton);

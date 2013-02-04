@@ -1,5 +1,13 @@
 <?php
-// options for all pages inn backend, global
+/**
+ * @package Adminimize
+ * @subpackage Global Options
+ * @author Frank Bültge
+ */
+if ( ! function_exists( 'add_action' ) ) {
+	echo "Hi there!  I'm just a part of plugin, not much I can do when called directly.";
+	exit;
+}
 ?>
 
 		<div id="poststuff" class="ui-sortable meta-box-sortables">
@@ -23,7 +31,7 @@
 						<tbody>
 						<?php
 							foreach ($user_roles as $role) {
-								$disabled_global_option_[$role]  = _mw_adminimize_getOptionValue('mw_adminimize_disabled_global_option_'. $role .'_items');
+								$disabled_global_option_[$role]  = _mw_adminimize_get_option_value('mw_adminimize_disabled_global_option_'. $role .'_items');
 							}
 								
 							$global_options = array(
@@ -44,14 +52,14 @@
 																			__('Admin Color Scheme', FB_ADMINIMIZE_TEXTDOMAIN)
 																			);
 							
-							$_mw_adminimize_own_values = _mw_adminimize_getOptionValue('_mw_adminimize_own_values');
+							$_mw_adminimize_own_values = _mw_adminimize_get_option_value('_mw_adminimize_own_values');
 							$_mw_adminimize_own_values = preg_split( "/\r\n/", $_mw_adminimize_own_values );
 							foreach ( (array) $_mw_adminimize_own_values as $key => $_mw_adminimize_own_value ) {
 								$_mw_adminimize_own_value = trim($_mw_adminimize_own_value);
 								array_push($global_options, $_mw_adminimize_own_value);
 							}
 							
-							$_mw_adminimize_own_options = _mw_adminimize_getOptionValue('_mw_adminimize_own_options');
+							$_mw_adminimize_own_options = _mw_adminimize_get_option_value('_mw_adminimize_own_options');
 							$_mw_adminimize_own_options = preg_split( "/\r\n/", $_mw_adminimize_own_options );
 							foreach ( (array) $_mw_adminimize_own_options as $key => $_mw_adminimize_own_option ) {
 								$_mw_adminimize_own_option = trim($_mw_adminimize_own_option);
@@ -96,12 +104,12 @@
 							</tr>
 							<tr valign="top">
 								<td>
-									<textarea name="_mw_adminimize_own_options" cols="60" rows="3" id="_mw_adminimize_own_options" style="width: 95%;" ><?php echo _mw_adminimize_getOptionValue('_mw_adminimize_own_options'); ?></textarea>
+									<textarea name="_mw_adminimize_own_options" cols="60" rows="3" id="_mw_adminimize_own_options" style="width: 95%;" ><?php echo _mw_adminimize_get_option_value('_mw_adminimize_own_options'); ?></textarea>
 									<br />
 									<?php _e('Possible nomination for ID or class. Separate multiple nominations through a carriage return.', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
 								</td>
 								<td>
-									<textarea class="code" name="_mw_adminimize_own_values" cols="60" rows="3" id="_mw_adminimize_own_values" style="width: 95%;" ><?php echo _mw_adminimize_getOptionValue('_mw_adminimize_own_values'); ?></textarea>
+									<textarea class="code" name="_mw_adminimize_own_values" cols="60" rows="3" id="_mw_adminimize_own_values" style="width: 95%;" ><?php echo _mw_adminimize_get_option_value('_mw_adminimize_own_values'); ?></textarea>
 									<br />
 									<?php _e('Possible IDs or classes. Separate multiple values through a carriage return.', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
 								</td>
