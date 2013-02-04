@@ -180,6 +180,9 @@ package tinbob.display
 			visible = true;
 			_isOpen = true;
 			
+			var isAbout:Boolean = (info.slug == 'about');
+			trace(isAbout);
+			
 			if(!contains(_thumbnail)) addChild(_thumbnail);
 			_thumbnail._bitmap.bitmapData = _thumbnail._bitmapData.clone();
 			TweenMax.killTweensOf(_thumbnail);
@@ -207,7 +210,8 @@ package tinbob.display
 			TweenMax.to(_description, 0.3, {x:_descriptionX, alpha:1, ease:Sine.easeOut, delay: 0.1});
 			
 			var tinbobY:int;
-			if(!contains(_tinbob)) addChild(_tinbob);			
+			if(contains(_tinbob)) removeChild(_tinbob);
+			if(!contains(_tinbob) && isAbout) addChild(_tinbob);			
 			TweenMax.killTweensOf(_tinbob);
 			_tinbob.alpha = 0;
 			_tinbob.x = _tinbobX;
@@ -215,7 +219,8 @@ package tinbob.display
 			_tinbob.y = tinbobY + 60;;
 			TweenMax.to(_tinbob, 0.3, {y:tinbobY, alpha:1, ease:Sine.easeOut, delay: 0.1});		
 			
-			if(!contains(_contact)) addChild(_contact);
+			if(contains(_contact)) removeChild(_contact);
+			if(!contains(_contact) && isAbout) addChild(_contact);
 			_contact.htmlText = info.contacts;			
 			TweenMax.killTweensOf(_contact);
 			_contact.alpha = 0;
@@ -223,13 +228,16 @@ package tinbob.display
 			_contact.y = tinbobY + 10;
 			TweenMax.to(_contact, 0.3, {x:_contactX, alpha:1, ease:Sine.easeOut, delay: 0.1});
 			
-			if(!contains(_logo)) addChild(_logo);			
+			if(contains(_logo)) removeChild(_logo);
+			if(!contains(_logo) && isAbout) addChild(_logo);			
 			TweenMax.killTweensOf(_logo);
 			_logo.alpha = 0;
 			_logo.x = _contactX + 40;
 			tinbobY = _description.y +_description.height - 60;
 			_logo.y = tinbobY + 10;
 			TweenMax.to(_logo, 0.3, {x:_contactX, alpha:1, ease:Sine.easeOut, delay: 0.1});		
+			
+			
 			
 		}
 		/////////////////////////////////////////////////////////////////////////////////////
