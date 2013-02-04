@@ -36,9 +36,14 @@ package tinbob.display
 		private static const buttonVSpace:int = 20;
 		private static const buttonHOffset:int = -45;
 		private static const pageButtonVOffset:int = -55;
-		private static const buttonVOffset:int = pageButtonVOffset + 40;
+		private var  buttonVOffset:int = pageButtonVOffset + 40;
 		
 		private static const activeLogoY:int = pageButtonVOffset - 20;
+		
+		private var isPagesLoaded:Boolean = false;
+		private var isPostsLoaded:Boolean = false;
+		private var loadedPages:Vector.<PageInfo>;
+		private var loadedPosts:Vector.<PostInfo>;
 		//private static const inactiveLogoY:int = activeLogoY;
 		
 		
@@ -181,11 +186,47 @@ package tinbob.display
 		// onPostsLoaded --------------------------------------------------------------------
 		/////////////////////////////////////////////////////////////////////////////////////
 		public function onPostsLoaded(posts:Vector.<PostInfo>):void {
-			var nPosts:uint = posts.length;
+			loadedPosts = posts;
+			isPostsLoaded = true;
+			if(isPagesLoaded && isPostsLoaded) onAllLoaded();
+		}
+		/////////////////////////////////////////////////////////////////////////////////////
+		// onPagesLoaded --------------------------------------------------------------------
+		/////////////////////////////////////////////////////////////////////////////////////
+		public function onPagesLoaded(pages:Vector.<PageInfo>):void {
+			loadedPages = pages;
+			isPagesLoaded = true;
+			if(isPagesLoaded && isPostsLoaded) onAllLoaded();
+		}
+		/////////////////////////////////////////////////////////////////////////////////////
+		// onAllLoaded --------------------------------------------------------------------
+		/////////////////////////////////////////////////////////////////////////////////////
+		public function onAllLoaded():void {
+			var nPages:uint = loadedPages.length;
+			
+			for (var i:int = 0; i<nPages; i++)
+			{
+				if(_pageButtons.length < i+1){
+					var tempPostInfo:PostInfo = new PostInfo();
+					tempPostInfo.label = loadedPages[i].label;
+					tempPostInfo.title = loadedPages[i].title;
+					tempPostInfo.slug = loadedPages[i].slug;
+					var button:Button = new Button(tempPostInfo, false);
+					button.y = pageButtonVOffset + buttonVSpace * i;
+					button.rollOver.add(onButtonRollOver);
+					button.click.add(onButtonClick);
+					button.enable(true);
+					_buttonsContainer.addChild(button);
+					_pageButtons.push(button);
+				}
+			}
+			
+			var nPosts:uint = loadedPosts.length;
+			buttonVOffset = pageButtonVOffset + _pageButtons.length * buttonVSpace + 20;
 			for (var i:int = 0; i<nPosts; i++)
 			{
 				if(_buttons.length < i+1){
-					var button:Button = new Button(posts[i], true);
+					var button:Button = new Button(loadedPosts[i], true);
 					button.y = buttonVOffset + buttonVSpace * i;
 					button.rollOver.add(onButtonRollOver);
 					button.click.add(onButtonClick);
@@ -199,29 +240,6 @@ package tinbob.display
 			linkButton.y = buttonVOffset + buttonVSpace * nPosts + 20;
 			linkButton.enable(true);
 			_buttonsContainer.addChild(linkButton);
-		}
-		/////////////////////////////////////////////////////////////////////////////////////
-		// onPagesLoaded --------------------------------------------------------------------
-		/////////////////////////////////////////////////////////////////////////////////////
-		public function onPagesLoaded(pages:Vector.<PageInfo>):void {
-			var nPosts:uint = pages.length;
-
-			for (var i:int = 0; i<nPosts; i++)
-			{
-				if(_pageButtons.length < i+1){
-					var tempPostInfo:PostInfo = new PostInfo();
-					tempPostInfo.label = pages[i].label;
-					tempPostInfo.title = pages[i].title;
-					tempPostInfo.slug = pages[i].slug;
-					var button:Button = new Button(tempPostInfo, false);
-					button.y = pageButtonVOffset + buttonVSpace * i;
-					button.rollOver.add(onButtonRollOver);
-					button.click.add(onButtonClick);
-					button.enable(true);
-					_buttonsContainer.addChild(button);
-					_pageButtons.push(button);
-				}
-			}
 		}
 		/////////////////////////////////////////////////////////////////////////////////////
 		// onPageColorExtracted ----------------------------------------------------------------
